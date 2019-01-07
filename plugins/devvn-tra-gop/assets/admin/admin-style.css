@@ -1,0 +1,37 @@
+table.devvn_rate_list {
+    width: 100%;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 0;
+}
+table.devvn_rate_list td, table.devvn_rate_list th {
+    border: 1px solid #ddd;
+    font-weight: 400;
+    padding: 10px 5px;
+}
+table.devvn_rate_list tr:nth-child(2n) td, table.devvn_rate_list tr:nth-child(2n) th {
+    background: #fff;
+}
+table.devvn_rate_list tr th {
+    text-align: left;
+}
+.tragop_prod_box.tragop_prod_yes {
+    margin-top: 20px;
+}
+#tragop_prod_wrap .tragop_prod_box label ~ label {
+    margin-left: 20px;
+}
+.tragop_prod_box.tragop_prod_yes {
+    display: none;
+}
+.yes .tragop_prod_box.tragop_prod_yes {
+    display: block;
+}
+.devvn_tragop_wrap label ~ label{
+    margin-left: 20px;
+}
+.devvn_tragop_wrap table.form-table input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+}
