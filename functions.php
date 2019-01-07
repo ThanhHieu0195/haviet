@@ -49,6 +49,33 @@ function custom_override_checkout_fields( $fields ) {
        return $url;
     }
 
+
+    function renderView( $_file_, $_params_ = [] ) {
+        $_obInitialLevel_ = ob_get_level();
+        ob_start();
+        ob_implicit_flush( false );
+        extract( $_params_, EXTR_OVERWRITE );
+        try {
+            include $_file_;
+            $result = ob_get_clean();
+
+            return $result;
+        } catch ( \Exception $e ) {
+            while ( ob_get_level() > $_obInitialLevel_ ) {
+                if ( ! ob_end_clean() ) {
+                    ob_clean();
+                }
+            }
+            throw $e;
+        } catch ( \Throwable $e ) {
+            while ( ob_get_level() > $_obInitialLevel_ ) {
+                if ( ! ob_end_clean() ) {
+                    ob_clean();
+                }
+            }
+            throw $e;
+        }
+    }
 /**
  * Note: It's not recommended to add any custom code here. Please use a child theme so that your customizations aren't lost during updates.
  * Learn more here: http://codex.wordpress.org/Child_Themes
