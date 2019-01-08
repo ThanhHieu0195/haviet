@@ -29,10 +29,8 @@ class AjaxManager {
     add_action( 'wp_ajax_ux_builder_search_terms', array( $this->terms, 'search_terms' ) );
     add_action( 'wp_ajax_ux_builder_get_terms', array( $this->terms, 'get_terms' ) );
     add_action( 'wp_ajax_ux_builder_to_array', array( $this, 'to_array' ) );
-    add_action( 'wp_ajax_ux_builder_import_media', array( $this, 'import_media' ) );
-
+    add_action( 'wp_ajax_ux_builder_import_media', array( $this, 'import_media' ) );    
     if ( ! array_key_exists( 'ux_builder_action', $_POST ) ) return;
-
     add_action( 'template_redirect', array( $this->do_shortcode, 'do_shortcode' ), 0 );
   }
 
@@ -102,5 +100,11 @@ class AjaxManager {
     return wp_send_json_success( array(
       'id' => $attachment_id,
     ) );
+  }
+
+  public function get_data_product()
+  {
+    echo 123;
+    die;
   }
 }
