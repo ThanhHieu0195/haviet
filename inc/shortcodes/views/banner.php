@@ -10,8 +10,11 @@ $arr2 = isset($img2) ? explode(',', $img2) : [];
         <div class="banner-carousel">
          <?php 
          if (!empty($arr1)) {
-         	foreach ($arr1 as $url) {
-         		echo '<div class="item"><img src="' .esc_url($url). '" alt="#"></div>';	
+         	foreach ($arr1 as $attachment_id) {
+            $url = wp_get_attachment_url($attachment_id);
+            if ( !empty($url) ) {
+              echo '<div class="item"><img src="' .esc_url($url). '" alt="#"></div>'; 
+            }
          	}
          }
           ?>
@@ -20,8 +23,11 @@ $arr2 = isset($img2) ? explode(',', $img2) : [];
       <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
       	 <?php 
          if (!empty($arr2)) {
-         	foreach ($arr2 as $url) {
-         		echo '<div class="twobanner"><a href="#"><img src="' .$url. '" alt="#"></a></div>';	
+         	foreach ($arr2 as $attachment_id) {
+             $url = wp_get_attachment_url($attachment_id);
+             if (!empty($url)) {
+             echo '<div class="twobanner"><a href="#"><img src="' .$url. '" alt="#"></a></div>'; 
+             }
          	}
          }
           ?>

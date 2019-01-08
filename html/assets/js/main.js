@@ -56,27 +56,46 @@ jQuery(document).ready(function($){
         }
         ]
     });
-    
-    // $('.filters ul li').click(function(){
-    //     $('.filters ul li').removeClass('active');
-    //     $(this).addClass('active');
-        
-    //     var data = $(this).attr('data-filter');
-    //     $grid.isotope({
-    //       filter: data
-    //     })
-    //   });
-      
-    //   var $grid = $(".grid").isotope({
-    //     itemSelector: ".all",
-    //     percentPosition: true,
-    //     masonry: {
-    //       columnWidth: ".all"
-    //     }
-    //   });
-});
 
-;
+    window.getCategoriesProductData = function(slug='') {
+        let ajax_url = wpa_wcpb.ajaxurl;
+        $.get(ajax_url, {action:'get_data_product', slug: slug}, function(json) {
+            html = '';
+            if (json.length > 0) {
+                for(let i=0; i<json.length; i++) {  
+                    let item = json[i];
+                    html += `
+                        <div class="col-sm-3 all corporate game item-list">
+                            <div class="item">
+                              <div class="product product-item-new product-item"><a class="product-item-link" href="https://didongviet.vn/iphone-5s-16gb-quoc-te-like-new.html">
+                                  <div class="product-item-image">
+                                    <div class="inner-image"><img alt="${item['post_title']}" src="https://didongviet.vn/pub/media/catalog/product//i/p/iphone-5s-vang-didongviet_1_2.jpg"><span class="ico ico-gift"></span><span class="flag flag-status-1t1 lblstatus"></span></div>
+                                  </div>
+                                  <div class="product-item-info">
+                                    <h3>${item['post_title']}</h3>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="442"><span class="price-container price-final_price tax weee"><span class="price-wrapper" id="product-price-442" data-price-amount="2179000" data-price-type="finalPrice"><span class="price">2.179.000 ₫</span></span></span></div><span class="rtp"><i class="iconcom-txtstar"></i><i class="iconcom-txtstar"></i><i class="iconcom-txtstar"></i><i class="iconcom-txtstar"></i><i class="iconcom-txtunstar">      </i></span>
+                                    <div class="product-attribute">
+                                      <ul>
+                                        <li>Màn hình: 4 inch</li>
+                                        <li>HĐH: iOS 10</li>
+                                        <li>CPU: Apple A7 2 nhân 64-bit</li>
+                                        <li>RAM: 1 GB, ROM: 16 GB</li>
+                                        <li>Camera: 8MP, Selfie: 1,2 MP</li>
+                                        <li>Pin: 1560 mAh</li>
+                                      </ul>
+                                    </div>
+                                  </div></a></div>
+                            </div>
+                          </div>
+                    `;
+                }
+            }
+            $('.js-sc-tab-product').html(html);
+        });
+    };
+
+    window.getCategoriesProductData();
+});
 
 function myMap() {
     var mapProp= {
