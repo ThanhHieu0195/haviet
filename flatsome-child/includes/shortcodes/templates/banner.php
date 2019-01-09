@@ -1,4 +1,5 @@
 <?php 
+extract($params);
 $arr1 = isset($img1) ? explode(',', $img1) : [];
 $arr2 = isset($img2) ? explode(',', $img2) : [];
 ?>

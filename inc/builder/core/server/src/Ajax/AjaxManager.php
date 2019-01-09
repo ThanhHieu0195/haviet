@@ -101,10 +101,4 @@ class AjaxManager {
       'id' => $attachment_id,
     ) );
   }
-
-  public function get_data_product()
-  {
-    echo 123;
-    die;
-  }
 }

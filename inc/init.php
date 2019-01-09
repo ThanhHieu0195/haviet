@@ -113,8 +113,6 @@ require get_template_directory() . '/inc/shortcodes/ux_countdown/ux-countdown.ph
 require get_template_directory() . '/inc/shortcodes/ux_video.php';
 require get_template_directory() . '/inc/shortcodes/ux_nav.php';
 require get_template_directory() . '/inc/shortcodes/ux_payment_icons.php';
-require get_template_directory() . '/inc/shortcodes/banner.php';
-require get_template_directory() . '/inc/shortcodes/categories_slick.php';
 
 if(is_portfolio_activated()){
   require get_template_directory() . '/inc/shortcodes/portfolio.php';

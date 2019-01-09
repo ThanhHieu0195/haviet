@@ -1,4 +1,5 @@
 <?php 
+extract($params);
 $terms = get_terms( 'product_cat', array(
     'hide_empty' => false,
     'number' => intval($number)
@@ -32,15 +33,15 @@ $terms = get_terms( 'product_cat', array(
                 <div class="tab-pane fade show active" id="apple" role="tabpanel">
                   <section class="portfolio section">
                     <div class="container">
-                      <div class="filters"><span class="top-side">
+                      <div class="filters js-filter-cat"><span class="top-side">
                           <h2>Hãy chọn mục đích sử dụng:</h2></span>
                         <ul>
-                          <li class="active" data-filter="*">Hot nhất</li>
-                          <li data-filter=".corporate">Mới ra mắt</li>
-                          <li data-filter=".personal">Dưới 10 triệu đồng</li>
-                          <li data-filter=".agency">Nhiếp ảnh</li>
-                          <li data-filter=".portal">Pin khủng</li>
-                          <li data-filter=".game">Chơi game</li>
+                          <?php 
+                          $options = \includes\classes\Constants::OPTION_PRODUCT_PURPOSE;
+                          foreach ($options as $key => $value) {
+                            echo '<li data-filter="'.$key.'">'.$value.'</li>';
+                          }
+                          ?> 
                         </ul>
                       </div>
                       <div class="filters-content">
