@@ -3,7 +3,7 @@ namespace includes\classes;
 
 Class Constants {
 	public static function OPTION_PRODUCT_PURPOSE() {
-		return = [
+		return [
         	'hot-nhat' => 'hot nhât',
         	'moi-ra-mat' => 'mới ra mắt',
         	'duoi-10-tr' => 'dưới 10 triệu',
