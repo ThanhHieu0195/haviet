@@ -37,7 +37,7 @@ $terms = get_terms( 'product_cat', array(
                           <h2>Hãy chọn mục đích sử dụng:</h2></span>
                         <ul>
                           <?php 
-                          $options = \includes\classes\Constants::OPTION_PRODUCT_PURPOSE;
+                          $options = \includes\classes\Constants::OPTION_PRODUCT_PURPOSE();
                           foreach ($options as $key => $value) {
                             echo '<li data-filter="'.$key.'">'.$value.'</li>';
                           }

@@ -49,7 +49,7 @@ class ProductPurposeMetaBox {
     		$arr_sl = [];
     	}
         // Add nonce for security and authentication.
-        $options = \includes\classes\Constants::OPTION_PRODUCT_PURPOSE;
+        $options = \includes\classes\Constants::OPTION_PRODUCT_PURPOSE();
 
         echo '<select multiple name="product_purpose[]">';
         foreach ($options as $key => $value) {
