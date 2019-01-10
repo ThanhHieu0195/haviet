@@ -4,6 +4,7 @@ use includes\classes\Hook;
 use includes\classes\Language;
 
 $dir_path = dirname(__FILE__);
+define('PATH_INCLUDE', $dir_path);
 foreach (glob($dir_path . "/interfaces/*.php") as $filename)
 {
     include $filename;

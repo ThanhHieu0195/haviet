@@ -61,4 +61,25 @@ class Helper implements HelperInterface {
     public function translate($text) {
         return $text;
     }
+
+    public function time2remind($time)
+    {
+        $date_remind = (time() - $time) / 60;
+        if ($date_remind < 60) {
+          $date_remind = round($date_remind) . ' phút';
+        } else {
+          $date_remind /= 60;
+          if ($date_remind < 24) {
+            $date_remind = round($date_remind) . ' giờ';
+          } else {
+            $date_remind /= 24;
+            if ($date_remind < 365) {
+                $date_remind = round($date_remind) . ' ngày';
+            } else {
+                $date_remind = round($date_remind / 365) . ' năm';
+            }
+          }
+        }
+        return $date_remind;
+    }
 }

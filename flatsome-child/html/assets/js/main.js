@@ -1,4 +1,24 @@
 jQuery(document).ready(function($){
+      if ($('.sc-new').length > 0) {
+        var new_num = parseInt($('.sc-new').data('num'));
+        var new_pos = 0;
+        function getDataNew() {
+            let ajax_url = wpa_wcpb.ajaxurl;
+            $.get(ajax_url, {action:'front', method:'get_new_data', pos: new_pos, limit: new_num}, function(html) {
+                if (html != '') {
+                    new_pos += new_num;
+                    $('#sc-new-content').append(html);
+                } else {
+                    $('#moreNews').hide();
+                }
+            });
+        };
+        $('#moreNews').on('click', function() {
+            getDataNew();
+        });
+        getDataNew();
+      }
+
     $('.banner-carousel').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -93,14 +113,6 @@ jQuery(document).ready(function($){
         }
         getCategoriesProductData();
     });
-      
-      var $grid = $(".grid").isotope({
-        itemSelector: ".all",
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".all"
-        }
-      })
 });
 
 
@@ -113,35 +125,7 @@ function myMap() {
 }
 
 
-/* Add new */
-$('.slick-carousel-image').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots:true,
-    arrows: true,
-    prevArrow: '<a class="arrow arrow--left" href="#" role="button">‹</span></a>',
-    nextArrow: '<a class="arrow arrow--right" href="#" role="button">›</span></a>',
-    responsive:[
-    {
-        breakpoint: 769,
-        settings: {
-            dots: true,
-            arrows: false,
-            slidesToShow: 1,
-            slidesToShow: 1,
-        }
-    },
-    {
-        breakpoint: 480,
-        settings: {
-            dots: true,
-            arrows: false,
-            slidesToShow: 1,
-            slidesToShow: 1,
-        }
-    }
-    ]
-});
+
 
 
 jQuery(document).ready(function($){
@@ -181,6 +165,36 @@ jQuery(document).ready(function($){
             arrows: false,
             slidesToShow: 2,
             slidesToShow: 2,
+        }
+    },
+    {
+        breakpoint: 480,
+        settings: {
+            dots: true,
+            arrows: false,
+            slidesToShow: 1,
+            slidesToShow: 1,
+        }
+    }
+    ]
+});
+
+    /* Add new */
+$('.slick-carousel-image').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots:true,
+    arrows: true,
+    prevArrow: '<a class="arrow arrow--left" href="#" role="button">‹</span></a>',
+    nextArrow: '<a class="arrow arrow--right" href="#" role="button">›</span></a>',
+    responsive:[
+    {
+        breakpoint: 769,
+        settings: {
+            dots: true,
+            arrows: false,
+            slidesToShow: 1,
+            slidesToShow: 1,
         }
     },
     {

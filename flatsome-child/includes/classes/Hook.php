@@ -113,6 +113,21 @@ class Hook implements HookInterface{
                     }
                     echo json_encode($products);
                     exit(200);
+                case 'get_new_data':
+                    $number = intval($_GET['limit']);
+                    $pos = intval($_GET['pos'] );
+                    $posts = get_posts([
+                        'posts_per_page'  => $number,
+                        'offset' => $pos
+                    ]);
+
+                    if (!empty($posts)) {
+                        $view = PATH_INCLUDE . '/shortcodes/templates/newlist/item.php';
+                        foreach ($posts as $post) {
+                            echo \includes\Bootstrap::bootstrap()->helper->render($view);
+                        }
+                    }
+                    exit(200);
                 default:
                     break;
             }
