@@ -4,8 +4,8 @@ jQuery(document).ready(function($){
         slidesToScroll: 1,
         dots:true,
         arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
         prevArrow: '<a class="arrow arrow--left" href="#" role="button">‹</span></a>',
         nextArrow: '<a class="arrow arrow--right" href="#" role="button">›</span></a>',
         responsive:[
