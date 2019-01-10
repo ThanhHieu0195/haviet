@@ -21,7 +21,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+table, caption, tbody, tfoot, .section.portfolio .filters ulthead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -1154,6 +1154,11 @@ article.block-content p {
   margin-right: 15px;
 }
 
+.container .portfolio .section, .row .section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .sc-info-contact .info a {
   color: #5e6d77;
   -webkit-transition: all 0.3s ease;
@@ -1220,6 +1225,10 @@ article.block-content p {
 }
 
 .sc-tab-product {
+  background-color: transparent;
+}
+
+.sc-tab-product .nav-tabs {
   background-color: #fff;
 }
 
@@ -1306,7 +1315,7 @@ article.block-content p {
 }
 
 .section.portfolio .filters {
-  margin-top: 50px;
+  margin-top: 0px;
   background-color: #f3f3f3;
   padding: 15px 15px 5px;
 }
@@ -1315,6 +1324,11 @@ article.block-content p {
   padding: 0;
   display: inline-block;
   vertical-align: middle;
+  margin-bottom: 0;
+}
+
+#wrapper, #main {
+  background: #f3f3f3; 
 }
 
 .section.portfolio .filters ul li {
@@ -1339,7 +1353,14 @@ article.block-content p {
 }
 
 .section.portfolio .filters-content {
-  margin-top: 50px;
+  padding-top: 15px;
+  background-color: #fff;
+  padding-bottom: 15px;
+}
+
+.filters-content .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .section.portfolio .filters-content .show {
@@ -1360,6 +1381,10 @@ article.block-content p {
   text-align: center;
   cursor: pointer;
   margin-bottom: 30px;
+}
+
+.section.portfolio .filters-content .item:last-child {
+  margin-bottom: 0;
 }
 
 .section.portfolio .filters-content .item .p-inner {
